@@ -23,13 +23,10 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm install --global gulp --save
   - gem install sass
-  - git fetch --unshallow
 
             
 script: 
   - gulp test
-  - sonar-scanner
-  - cd src/styles/ && sh sasstocss.sh
   - cd ../../ && pwd && gulp build
   - cd dist && npm pack
   - mv amexio-ng-extensions-*.tgz amexio-ng-extensions.tgz
